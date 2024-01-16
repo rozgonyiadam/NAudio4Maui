@@ -65,7 +65,7 @@ namespace NAudio4Maui
         /// </summary>
         public AudioTrackPerformanceMode PerformanceMode { get; set; }
 
-        public WaveFormat OutputWaveFormat => throw new NotImplementedException();
+        public WaveFormat OutputWaveFormat => m_WaveProvider.WaveFormat;
 
         #endregion
 
