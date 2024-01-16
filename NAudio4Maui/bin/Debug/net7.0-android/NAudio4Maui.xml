@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NAudio4Maui</name>
+    </assembly>
+    <members>
+        <member name="T:NAudio4Maui.AudioOut">
+            <summary>
+            Represents an Android wave player implemented using <see cref="T:Android.Media.AudioTrack"/>.
+            </summary>
+        </member>
+        <member name="P:NAudio4Maui.AudioOut.PlaybackState">
+            <summary>
+            Gets the current playback state.
+            </summary>
+        </member>
+        <member name="P:NAudio4Maui.AudioOut.Volume">
+            <summary>
+            Gets or sets the volume in % (0.0 to 1.0).
+            </summary>
+        </member>
+        <member name="P:NAudio4Maui.AudioOut.DesiredLatency">
+            <summary>
+            Gets or sets the desired latency in milliseconds.
+            </summary>
+        </member>
+        <member name="P:NAudio4Maui.AudioOut.NumberOfBuffers">
+            <summary>
+            Gets or sets the number of buffers to use.
+            </summary>
+        </member>
+        <member name="P:NAudio4Maui.AudioOut.Usage">
+            <summary>
+            Gets or sets the usage.
+            </summary>
+        </member>
+        <member name="P:NAudio4Maui.AudioOut.ContentType">
+            <summary>
+            Gets or sets the content type.
+            </summary>
+        </member>
+        <member name="P:NAudio4Maui.AudioOut.PerformanceMode">
+            <summary>
+            Gets or sets the performance mode.
+            </summary>
+        </member>
+        <member name="E:NAudio4Maui.AudioOut.PlaybackStopped">
+            <summary>
+            Occurs when the player has stopped.
+            </summary>
+        </member>
+        <member name="M:NAudio4Maui.AudioOut.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NAudio4Maui.AudioOut"/> class.
+            </summary>
+        </member>
+        <member name="M:NAudio4Maui.AudioOut.Finalize">
+            <summary>
+            Releases the unmanaged resources used by the current instance of the <see cref="T:NAudio4Maui.AudioOut"/> class.
+            </summary>
+        </member>
+        <member name="M:NAudio4Maui.AudioOut.Init(NAudio.Wave.IWaveProvider)">
+            <summary>
+            Initializes the player with the specified wave provider.
+            </summary>
+            <param name="waveProvider">The wave provider to be played.</param>
+        </member>
+        <member name="M:NAudio4Maui.AudioOut.Play">
+            <summary>
+            Starts the player.
+            </summary>
+        </member>
+        <member name="M:NAudio4Maui.AudioOut.Pause">
+            <summary>
+            Pauses the player.
+            </summary>
+        </member>
+        <member name="M:NAudio4Maui.AudioOut.Stop">
+            <summary>
+            Stops the player.
+            </summary>
+        </member>
+        <member name="M:NAudio4Maui.AudioOut.Dispose">
+            <summary>
+            Releases all resources used by the current instance of the <see cref="T:NAudio4Maui.AudioOut"/> class.
+            </summary>
+        </member>
+        <member name="M:NAudio4Maui.AudioOut.OnPlaybackStopped(System.Exception)">
+            <summary>
+            Raises the <see cref="E:NAudio4Maui.AudioOut.PlaybackStopped"/> event with the provided arguments.
+            </summary>
+            <param name="exception">An optional exception that occured.</param>
+        </member>
+        <member name="M:NAudio4Maui.AudioOut.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:NAudio4Maui.AudioOut"/>, and optionally releases the managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+    </members>
+</doc>

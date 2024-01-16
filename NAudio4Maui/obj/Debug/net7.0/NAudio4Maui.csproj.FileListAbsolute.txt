@@ -1,0 +1,12 @@
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\bin\Debug\net7.0\NAudio4Maui.deps.json
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\bin\Debug\net7.0\NAudio4Maui.dll
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\bin\Debug\net7.0\NAudio4Maui.pdb
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\obj\Debug\net7.0\NAudio4Maui.csproj.AssemblyReference.cache
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\obj\Debug\net7.0\NAudio4Maui.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\obj\Debug\net7.0\NAudio4Maui.AssemblyInfoInputs.cache
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\obj\Debug\net7.0\NAudio4Maui.AssemblyInfo.cs
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\obj\Debug\net7.0\NAudio4Maui.csproj.CoreCompileInputs.cache
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\obj\Debug\net7.0\NAudio4Maui.dll
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\obj\Debug\net7.0\refint\NAudio4Maui.dll
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\obj\Debug\net7.0\NAudio4Maui.pdb
+D:\Visual Studio\NAudio4Maui\NAudio4Maui\obj\Debug\net7.0\ref\NAudio4Maui.dll
