@@ -30,7 +30,6 @@ namespace NAudio4Maui
 
         private void Initialize()
         {
-            // Válaszd ki a megfelelő hangfájl sávját és formátumát
             int trackIndex = SelectTrack(mediaExtractor);
             MediaFormat mediaFormat = mediaExtractor.GetTrackFormat(trackIndex);
 
@@ -45,16 +44,11 @@ namespace NAudio4Maui
 
             decodedData = new MemoryStream();
 
-            // Olvasd be és dekódold az adatokat, majd írd be a MemoryStream-be
             DecodeAudio();
         }
 
         private void DecodeAudio()
         {
-            //int bufferSize = 1024 * 2; // Példa: 2 KB buffer méret
-            //byte[] inputBuffer = new byte[bufferSize];
-            //byte[] outputBuffer = new byte[bufferSize];
-
             Java.Nio.ByteBuffer inputBuffer = null;
             Java.Nio.ByteBuffer outputBuffer = null;
 
@@ -86,11 +80,9 @@ namespace NAudio4Maui
                 {
                     outputBuffer = mediaCodec.GetOutputBuffer(outputBufferIndex);
 
-                    // Olvassuk ki a dekódolt adatokat a ByteBuffer-ból
                     byte[] outputData = new byte[bufferInfo.Size];
                     outputBuffer.Get(outputData, 0, bufferInfo.Size);
 
-                    // Itt kezeld a dekódolt adatokat (pl. írd be a MemoryStream-be)
                     decodedData.Write(outputData, 0, bufferInfo.Size);
 
                     mediaCodec.ReleaseOutputBuffer(outputBufferIndex, false);
@@ -98,14 +90,13 @@ namespace NAudio4Maui
 
                 if ((bufferInfo.Flags & MediaCodecBufferFlags.EndOfStream) != 0)
                 {
-                    break; // Kilép a ciklusból, ha elérte a fájl végét
+                    break;
                 }
             }
         }
 
         private int SelectTrack(MediaExtractor extractor)
         {
-            // Válaszd ki a megfelelő sávot a hangfájlból
             for (int i = 0; i < extractor.TrackCount; i++)
             {
                 MediaFormat format = extractor.GetTrackFormat(i);
@@ -125,24 +116,6 @@ namespace NAudio4Maui
         {
             get
             {
-                //if (mediaCodec == null)
-                //    throw new InvalidOperationException("MediaCodec is not initialized.");
-
-                //MediaFormat outputFormat = mediaCodec.OutputFormat;
-
-                //// Ellenőrizd, hogy a kimeneti formátum PCM-e
-                //if (outputFormat.GetString(MediaFormat.KeyMime).StartsWith("audio/"))
-                //{
-                //    int sampleRate = outputFormat.GetInteger(MediaFormat.KeySampleRate);
-                //    int channelCount = outputFormat.GetInteger(MediaFormat.KeyChannelCount);
-
-                //    return WaveFormat.CreateIeeeFloatWaveFormat(sampleRate, channelCount);
-                //}
-                //else
-                //{
-                //    throw new InvalidOperationException("Unsupported audio format.");
-                //}
-
                 return WaveFormat.CreateIeeeFloatWaveFormat(sampleRate, channelCount);
             }
         }
@@ -151,7 +124,6 @@ namespace NAudio4Maui
         {
             get
             {
-                // Visszaadja a WaveStream hosszát, például a dekódált adat hosszával
                 return decodedData.Length;
             }
         }
@@ -160,32 +132,25 @@ namespace NAudio4Maui
         {
             get
             {
-                // Visszaadja a WaveStream pozícióját, például a MemoryStream pozíciójával
                 return decodedData.Position;
             }
             set
             {
-                // Beállítja a WaveStream pozícióját, például a MemoryStream pozíciójával
                 decodedData.Position = value;
             }
         }
 
         public override int Read(byte[] buffer, int offset, int count)
         {
-            // Olvasd ki a WaveStream-ből a megfelelő mennyiségű dekódált adatot
             int bytesRead = 0;
 
-            // Például olvasd ki a dekódált adatokat a MemoryStream-ből
             bytesRead = decodedData.Read(buffer, offset, count);
-
-            // Kezelheted az olvasás során fellépő esetleges hibákat
 
             return bytesRead;
         }
 
         protected override void Dispose(bool disposing)
         {
-            // Felszabadítsd az eszközöket (pl. MediaExtractor, MediaCodec, MemoryStream)
             if (disposing)
             {
                 mediaCodec.Stop();
