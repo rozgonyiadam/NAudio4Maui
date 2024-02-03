@@ -1,4 +1,5 @@
-﻿using Android.Media;
+﻿using Android.Bluetooth;
+using Android.Media;
 using NAudio.Wave;
 
 namespace NAudio4Maui
@@ -65,7 +66,7 @@ namespace NAudio4Maui
         /// </summary>
         public AudioTrackPerformanceMode PerformanceMode { get; set; }
 
-        public WaveFormat OutputWaveFormat => m_WaveProvider.WaveFormat;
+        public WaveFormat OutputWaveFormat => m_WaveProvider?.WaveFormat;
 
         #endregion
 
@@ -111,8 +112,7 @@ namespace NAudio4Maui
         #endregion
 
         #region Public Methods
-        public double GetPosition() => m_AudioTrack.PlaybackHeadPosition / (double)m_WaveProvider.WaveFormat.SampleRate;
-
+        public double GetPosition() => m_AudioTrack.PlaybackHeadPosition * m_AudioTrack.ChannelCount * (m_AudioTrack.AudioFormat == Encoding.Pcm16bit ? 2 : m_AudioTrack.AudioFormat == Encoding.Pcm8bit ? 1 : 4);
         /// <summary>
         /// Initializes the player with the specified wave provider.
         /// </summary>
